@@ -29,5 +29,11 @@ export class AuthService {
 
     this.authToken = token;
     this.user = user;
-  }
+  } //storeUserData
+
+  logout() {
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
+  } //logout
 }
