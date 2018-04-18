@@ -48,6 +48,11 @@ app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
 });
 
+// redirect undeclared routes to index
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 // starting server
 app.listen(port, () => {
     console.log('Server started on port ' + port);

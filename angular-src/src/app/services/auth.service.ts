@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map'; 
+import { tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
@@ -44,6 +45,11 @@ export class AuthService {
     const token = localStorage.getItem('id_token');
     this.authToken = token;
   } //loadToken
+
+  // check to see if we are logged in (actually to see if the token is not expired)
+  loggedIn() {
+    return tokenNotExpired('id_token');
+  } //loggedIn
 
   logout() {
     this.authToken = null;
