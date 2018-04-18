@@ -1,3 +1,7 @@
-<p>
-  profile works!
-</p>
+<!-- only load view IF user exists-->
+<div *ngIf="user">
+    <h2 class="page-header">{{user.name}}</h2>
+    <ul class="list-group">
+      <li class="list-group-item">{{user.email}}</li>
+    </ul>
+  </div>
